@@ -1,59 +1,62 @@
 # Tutorial: OSPREY
 
-OSPREY simulates the physics of **Primordial Black Holes (PBH)**.
-It calculates the rate at which these tiny black holes emit *Standard Model particles* via **Hawking radiation**, accounting for *greybody factors* (how gravity affects particle escape).
-It then simulates the **decay** of unstable primary particles into secondary particles (like photons), using pre-calculated tables.
-The final output is the combined energy *spectrum* of particles originating from the PBH, useful for astrophysical analyses.
+OSPREY simulates the **Hawking radiation** emitted by *Primordial Black Holes* (PBHs).
+It calculates the energy **spectra** of various *Standard Model particles* produced both directly (primary emission, affected by gravity's **GreyBody** filter) and indirectly (secondary particles from decays/interactions).
+The project involves preparing necessary physics data (**Build Workflow**), configuring simulation parameters (**Configuration**), running the main calculation (**SpectrumCalculator**), and saving the results (**Data Output**) for analysis and plotting.
 
-**Source Repository:** [OSPREY](https://github.com/Axect/OSPREY)
+
+**Source Repository:** [None](None)
 
 ```mermaid
 flowchart TD
-    A0["PBH (Primordial Black Hole)
+    A0["Primordial Black Hole (PBH)
 "]
-    A1["Particle / StandardModel
+    A1["Standard Model Particle
 "]
-    A2["GreyBody Factors (GreyBody / GreyBodyData / GreyBodyFit)
+    A2["GreyBody Factor Handling
 "]
-    A3["Emission Rate Calculation (PBH::emission_rate)
+    A3["Secondary Spectrum Handling
 "]
-    A4["SecondaryGenerator / SecondaryTable
+    A4["SpectrumCalculator
 "]
-    A5["Decay Spectrum Calculation (e.g., neutral_pion_decay_spectrum)
+    A5["Configuration Management
 "]
-    A6["Data Interpolation & Querying (BilinearInterpolation, find_index_or_lower_bound, SecondaryTable::query)
+    A6["Build & Data Preparation Workflow
 "]
-    A7["Data Serialization/Deserialization (rkyv, Parquet)
+    A7["Data Output (Parquet) & Plotting
 "]
-    A0 -- "Performs" --> A3
-    A3 -- "Uses particle properties" --> A1
-    A3 -- "Uses greybody factors" --> A2
-    A2 -- "Uses interpolation" --> A6
-    A2 -- "Loaded/Saved via" --> A7
-    A4 -- "Generates table using" --> A5
-    A4 -- "Uses interpolation/querying" --> A6
-    A4 -- "Loaded/Saved via" --> A7
-    A5 -- "Calculates for specific" --> A1
+    A4 -- "Uses PBH properties" --> A0
+    A4 -- "Calculates spectrum for Par..." --> A1
+    A4 -- "Uses GreyBody Factors" --> A2
+    A4 -- "Integrates Secondary Spectra" --> A3
+    A4 -- "Reads Configuration" --> A5
+    A4 -- "Produces Data Output" --> A7
+    A6 -- "Prepares GreyBody data" --> A2
+    A6 -- "Prepares Secondary data" --> A3
+    A5 -- "Defines PBH parameters" --> A0
+    A5 -- "Defines Secondary energy cuts" --> A3
+    A3 -- "Processes Primary Particles" --> A1
+    A2 -- "Depends on Particle spin" --> A1
 ```
 
 ## Chapters
 
-1. [PBH (Primordial Black Hole)
-](01_pbh__primordial_black_hole__.html)
-2. [Particle / StandardModel
-](02_particle___standardmodel_.html)
-3. [GreyBody Factors (GreyBody / GreyBodyData / GreyBodyFit)
-](03_greybody_factors__greybody___greybodydata___greybodyfit__.html)
-4. [Emission Rate Calculation (PBH::emission_rate)
-](04_emission_rate_calculation__pbh__emission_rate__.html)
-5. [SecondaryGenerator / SecondaryTable
-](05_secondarygenerator___secondarytable_.html)
-6. [Decay Spectrum Calculation (e.g., neutral_pion_decay_spectrum)
-](06_decay_spectrum_calculation__e_g___neutral_pion_decay_spectrum__.html)
-7. [Data Interpolation & Querying (BilinearInterpolation, find_index_or_lower_bound, SecondaryTable::query)
-](07_data_interpolation___querying__bilinearinterpolation__find_index_or_lower_bound__secondarytable__query__.html)
-8. [Data Serialization/Deserialization (rkyv, Parquet)
-](08_data_serialization_deserialization__rkyv__parquet__.html)
+1. [Build & Data Preparation Workflow
+](01_build___data_preparation_workflow_.md)
+2. [Configuration Management
+](02_configuration_management_.md)
+3. [Primordial Black Hole (PBH)
+](03_primordial_black_hole__pbh__.md)
+4. [Standard Model Particle
+](04_standard_model_particle_.md)
+5. [GreyBody Factor Handling
+](05_greybody_factor_handling_.md)
+6. [Secondary Spectrum Handling
+](06_secondary_spectrum_handling_.md)
+7. [SpectrumCalculator
+](07_spectrumcalculator_.md)
+8. [Data Output (Parquet) & Plotting
+](08_data_output__parquet____plotting_.md)
 
 
 ---
