@@ -5,7 +5,7 @@ It calculates the energy **spectra** of various *Standard Model particles* produ
 The project involves preparing necessary physics data (**Build Workflow**), configuring simulation parameters (**Configuration**), running the main calculation (**SpectrumCalculator**), and saving the results (**Data Output**) for analysis and plotting.
 
 
-**Source Repository:** [None](None)
+**Source Repository:** [OSPREY](https://github.com/Axect/OSPREY)
 
 ```mermaid
 flowchart TD
@@ -42,21 +42,21 @@ flowchart TD
 ## Chapters
 
 1. [Build & Data Preparation Workflow
-](01_build___data_preparation_workflow_.md)
+](01_build___data_preparation_workflow_.html)
 2. [Configuration Management
-](02_configuration_management_.md)
+](02_configuration_management_.html)
 3. [Primordial Black Hole (PBH)
-](03_primordial_black_hole__pbh__.md)
+](03_primordial_black_hole__pbh__.html)
 4. [Standard Model Particle
-](04_standard_model_particle_.md)
+](04_standard_model_particle_.html)
 5. [GreyBody Factor Handling
-](05_greybody_factor_handling_.md)
+](05_greybody_factor_handling_.html)
 6. [Secondary Spectrum Handling
-](06_secondary_spectrum_handling_.md)
+](06_secondary_spectrum_handling_.html)
 7. [SpectrumCalculator
-](07_spectrumcalculator_.md)
+](07_spectrumcalculator_.html)
 8. [Data Output (Parquet) & Plotting
-](08_data_output__parquet____plotting_.md)
+](08_data_output__parquet____plotting_.html)
 
 
 ---
